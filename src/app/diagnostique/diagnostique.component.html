@@ -1,0 +1,43 @@
+<div class="container">
+<div class="image"><img src="assets/IA.png"></div>
+
+<div class="inscription-form">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Informations</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="submitForm()">
+        <div class="form-field">
+          <mat-form-field>
+            <input matInput placeholder="Date de Naissance" type="date" [formControl]="birthDateFormControl" required>
+            <mat-error *ngIf="birthDateFormControl.hasError('required')">
+              Date de naissance requise.
+            </mat-error>
+            <mat-error *ngIf="birthDateFormControl.hasError('underage')">
+              Le client doit avoir plus de 20 ans.
+            </mat-error>
+          </mat-form-field>
+          <!-- TODO : rendre le champ obligatoire -->
+          <mat-form-field>
+            <mat-select placeholder="Sexe">
+              <mat-option *ngFor="let sexe of sexes" [value]="sexe">{{sexe}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Département">
+              <mat-option *ngFor="let dep of departements" [value]="dep">{{dep}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="bouton">
+          <button mat-raised-button color="warn" (click)="submitForm()">S'inscrire</button>
+          <div *ngIf="!formIsValid" class="error-message">
+            <mat-error>Erreur : champ invalid</mat-error>
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+</div>
