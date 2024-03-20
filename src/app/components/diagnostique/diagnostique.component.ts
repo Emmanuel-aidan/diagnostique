@@ -136,12 +136,13 @@ export class DiagnostiqueComponent {
   }
 
   submitForm() {
-    if (      this.birthDateFormControl.invalid) {
+    if (this.birthDateFormControl.invalid) {
       // Affichez un message d'erreur ou effectuez une autre action appropriée
       console.log('Le diagnostique est invalide. Veuillez remplir tous les champs.');
       this.formIsValid = false;
       return;
     }
+
 
     // Si le diagnostique est valide, vous pouvez continuer avec le traitement de la soumission
     console.log('Le diagnostique est valide. Soumission en cours...');

@@ -3,24 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DiagnostiqueComponent } from './diagnostique/diagnostique.component';
+import { DiagnostiqueComponent } from './components/diagnostique/diagnostique.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from "./material.module";
-import {AccueilComponent} from "./accueil/accueil.component";
-import {StatistiquesComponent} from "./statistiques/statistiques.component";
+import {AccueilComponent} from "./components/accueil/accueil.component";
+import {StatistiquesComponent} from "./components/statistiques/statistiques.component";
+import {ResultatsComponent} from "./components/resultats/resultats.component";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
     DiagnostiqueComponent,
     AccueilComponent,
-    StatistiquesComponent
+    StatistiquesComponent,
+    ResultatsComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="image">
     <a href="/"> <!-- Remplacez "/accueil" par l'URL de votre page d'accueil -->
-      <img src="assets/IA.png" alt="dIAg" />
+      <img src="../../../assets/IA.png" alt="dIAg" />
     </a>
   </div>
 
@@ -35,7 +35,7 @@
           </mat-form-field>
         </div>
         <div class="bouton">
-          <button mat-raised-button color="warn" (click)="submitForm()">S'inscrire</button>
+          <button mat-raised-button color="warn" (click)="submitForm()">Valider</button>
           <div *ngIf="!formIsValid" class="error-message">
             <mat-error>Erreur : champ invalid</mat-error>
           </div>

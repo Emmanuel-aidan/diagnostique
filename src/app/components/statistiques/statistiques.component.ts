@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'app-statistiques',
@@ -6,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./statistiques.component.css']
 })
 export class StatistiquesComponent {
-
 }
