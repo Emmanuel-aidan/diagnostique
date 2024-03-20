@@ -24,12 +24,12 @@
           </mat-form-field>
           <!-- TODO : rendre le champ obligatoire -->
           <mat-form-field>
-            <mat-select placeholder="Sexe">
+            <mat-select placeholder="Sexe" [formControl]="sexeFormControl">
               <mat-option *ngFor="let sexe of sexes" [value]="sexe">{{sexe}}</mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field>
-            <mat-select placeholder="Département">
+            <mat-select placeholder="Département" [formControl]="departementFormControl">
               <mat-option *ngFor="let dep of departements" [value]="dep">{{dep}}</mat-option>
             </mat-select>
           </mat-form-field>

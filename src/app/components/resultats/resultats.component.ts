@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {JsonService} from "../../services/json.service";
 
 @Component({
   selector: 'app-resultats',
@@ -7,15 +7,18 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./resultats.component.css']
 })
 export class ResultatsComponent implements OnInit {
-  donnees: any;
-  //troisPlusGrandesNpop: any[];
-  constructor(private http: HttpClient) { }
+  donnees !: any[];
 
-  ngOnInit(): void {
-    this.http.get<any[]>('../../../assets/DonneesFinales.json').subscribe(data => {
-      this.donnees = data;
-      console.log(this.donnees); // Vérifiez que les données sont correctement chargées
-    });
+  constructor(public jsonService : JsonService) {
+  }
+
+
+  async ngOnInit() {
+    this.donnees = this.jsonService.getJsonData();
+  }
+
+  ngOnChanges(){
+    this.donnees=this.jsonService.getJsonData();
   }
 
   getTroisPlusGrandesNpop(): any[] {
@@ -25,4 +28,7 @@ export class ResultatsComponent implements OnInit {
       return [];
     }
   }
+
+  
+
 }
