@@ -1,14 +1,20 @@
 import {Component, OnInit} from '@angular/core';
 import Chart from 'chart.js/auto';
+import {JsonService} from "../../services/json.service";
 
-
+interface PathologyItem {
+  patho_niv1: string;
+  patho_niv2: string;
+  patho_niv3: string;
+}
 @Component({
   selector: 'app-statistiques',
   templateUrl: './statistiques.component.html',
   styleUrls: ['./statistiques.component.css']
 })
-export class StatistiquesComponent implements OnInit {
 
+
+export class StatistiquesComponent implements OnInit {
   departements = [
     '18-Cher',
     '28-Eure-et-Loir',
@@ -17,19 +23,65 @@ export class StatistiquesComponent implements OnInit {
     '41-Loir-et-Cher',
     '45-Loiret'
   ]
+  selectedDepartment: string = this.departements[0];
+  donnees: PathologyItem[] = [
+    { patho_niv1: "Cancer", patho_niv2: "Subpathology A", patho_niv3: "Pathology 3" },
+    { patho_niv1: "Maladies cardio-vasculaires", patho_niv2: "Pathology 2", patho_niv3: "Pathology 3"},
+    { patho_niv1: "Test", patho_niv2: "Subpathology C", patho_niv3: "Pathology 3" },
+    // Add more items as needed
+  ];
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit(): void {
-    this.createChart();
+    this.displayPieChart();
   }
 
-  public barchart: any;
-  public pie: any;
-  public line: any;
 
 
+  displayPieChart(): void {
+    const items = this.getTroisPlusGrandesNtop();
+    const labels: string[] = [];
+    const data: number[] = [];
+
+    items.forEach(item => {
+      // Assuming some logic to calculate data points
+      // For demonstration purposes, assigning random data
+      const dataPoint = Math.floor(Math.random() * 100);
+      labels.push(item.patho_niv1);
+      data.push(dataPoint);
+    });
+
+    const ctx = document.getElementById('myPieChart') as HTMLCanvasElement;
+    new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Maladies les plus courantes',
+          data: data,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            // Add more colors as needed
+          ],
+          borderWidth: 1
+        }]
+      }
+    });
+  }
+
+  getTroisPlusGrandesNtop(): PathologyItem[] {
+    // Logic to return the three largest items
+    // For demonstration purposes, returning the first three items
+    return this.donnees ? this.donnees.slice(0, 3) : [];
+  }
+
+
+
+
+  /*
   createChart() {
 
     this.barchart = new Chart("barCart", {
@@ -66,7 +118,7 @@ export class StatistiquesComponent implements OnInit {
       type: 'pie', //this denotes tha type of chart
 
       data: {// values on X-Axis
-        labels: ['Cancer', 'Gastro', 'Covid'],
+        labels: [this.getTroisPlusGrandesNtop(), 'Gastro', 'Covid'],
         datasets: [{
           label: 'My First Dataset',
           data: [300, 50, 100],
@@ -84,4 +136,6 @@ export class StatistiquesComponent implements OnInit {
 
     });
   }
+
+   */
 }

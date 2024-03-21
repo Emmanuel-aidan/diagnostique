@@ -3,12 +3,11 @@
     <a href="/"><img src="../../../assets/IA_small.png" alt="dIAg" /></a>
   </div>
   <mat-card>
-    <mat-card-header>
+    <mat-card-title>
       Résultats
-    </mat-card-header>
+    </mat-card-title>
     <mat-card-content>
       <label>Votre client est susceptible de développer : </label>
-
       <div *ngIf="donnees">
         <ul>
           <li *ngFor="let item of getTroisPlusGrandesNtop()">
@@ -18,7 +17,6 @@
           </li>
         </ul>
       </div>
-
       <button mat-raised-button routerLink="/statistiques">Voir plus de statistiques</button>
       <button mat-raised-button>Trouver un produit adapté</button>
 

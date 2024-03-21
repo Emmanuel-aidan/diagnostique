@@ -26,3 +26,8 @@ h1{
 img{
   width: auto;
   height: 100px;}
+
+.chart-container{
+  width: auto;
+  height: 300px;
+}
