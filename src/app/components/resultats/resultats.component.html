@@ -12,8 +12,8 @@
         <ul>
           <li *ngFor="let item of getTroisPlusGrandesNtop()">
             <p>Pathologie : {{ item.patho_niv1 }}</p>
-            <p *ngIf="item.patho_niv2 != ';'">{{ item.patho_niv2 }}</p>
-            <p *ngIf="item.patho_niv3 != ';'">{{ item.patho_niv3 }}</p>
+            <p *ngIf="item.patho_niv2 != ';' && item.patho_niv2!=item.patho_niv1 && item.patho_niv3!=item.patho_niv3">{{ item.patho_niv2 }}</p>
+            <p *ngIf="item.patho_niv3 != ';' && item.patho_niv3!=item.patho_niv1 && item.patho_niv2!=item.patho_niv1">{{ item.patho_niv3 }}</p>
           </li>
         </ul>
       </div>
