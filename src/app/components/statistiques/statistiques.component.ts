@@ -13,7 +13,7 @@ interface PathologyItem {
   styleUrls: ['./statistiques.component.css']
 })
 
-
+//Todo, à ameliorer
 export class StatistiquesComponent implements OnInit {
   departements = [
     '18-Cher',
@@ -27,7 +27,7 @@ export class StatistiquesComponent implements OnInit {
   donnees: PathologyItem[] = [
     { patho_niv1: "Cancer", patho_niv2: "Subpathology A", patho_niv3: "Pathology 3" },
     { patho_niv1: "Maladies cardio-vasculaires", patho_niv2: "Pathology 2", patho_niv3: "Pathology 3"},
-    { patho_niv1: "Test", patho_niv2: "Subpathology C", patho_niv3: "Pathology 3" },
+    { patho_niv1: "Autre cancers", patho_niv2: "Subpathology C", patho_niv3: "Pathology 3" },
     // Add more items as needed
   ];
 
@@ -61,7 +61,26 @@ export class StatistiquesComponent implements OnInit {
           label: 'Maladies les plus courantes',
           data: data,
           backgroundColor: [
-            'rgba(255, 99, 132, 0.6)',
+            'rgba(245, 135, 99, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            // Add more colors as needed
+          ],
+          borderWidth: 1
+        }]
+      }
+    });
+
+    const txc = document.getElementById('myBarChart') as HTMLCanvasElement;
+    new Chart(txc, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Maladies les plus courantes',
+          data: data,
+          backgroundColor: [
+            'rgba(245, 135, 99, 0.6)',
             'rgba(54, 162, 235, 0.6)',
             'rgba(255, 206, 86, 0.6)',
             // Add more colors as needed

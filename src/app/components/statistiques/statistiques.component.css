@@ -29,5 +29,13 @@ img{
 
 .chart-container{
   width: auto;
-  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+
+}
+#myPieChart{
+  max-height: 500px;
+
 }
