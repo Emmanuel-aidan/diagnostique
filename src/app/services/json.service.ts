@@ -10,7 +10,7 @@ export class JsonService {
 
 
   async getDatas(): Promise<any[]> {
-      return await this.http.get<any[]>('../../../assets/DonneesFinales2.json').toPromise() as any[];
+      return await this.http.get<any[]>('../../../assets/Donnees.json').toPromise() as any[];
   }
 
   constructor(private http: HttpClient) {
