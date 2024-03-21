@@ -31,9 +31,9 @@ export class JsonService {
     this.donnees = data;
   }
 
-  filterData(age: number, sexe: string, department: string): any[] {
+  filterData(age: string, sexe: string, department: string): any[] {
     return this.donnees.filter(item =>
-      //item.age === age &&
+      item.cla_age_5 === age &&
       item.libelle_sexe === sexe &&
       item.dept === department
     );
