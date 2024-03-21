@@ -21,14 +21,14 @@ export class ResultatsComponent implements OnInit {
     this.donnees=this.jsonService.getJsonData();
   }
 
-  getTroisPlusGrandesNpop(): any[] {
+  getTroisPlusGrandesNtop(): any[] {
     if (this.donnees) {
-      return this.donnees.sort((a: { npop: number; }, b: { npop: number; }) => b.npop - a.npop).slice(0, 3);
+      return this.donnees.sort((a: { ntop: number; }, b: { ntop: number; }) => b.ntop - a.ntop).slice(0, 3);
     } else {
       return [];
     }
   }
 
-  
+
 
 }

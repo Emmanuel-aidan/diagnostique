@@ -11,11 +11,10 @@
 
       <div *ngIf="donnees">
         <ul>
-          <li *ngFor="let item of getTroisPlusGrandesNpop()">
+          <li *ngFor="let item of getTroisPlusGrandesNtop()">
             <p>Pathologie : {{ item.patho_niv1 }}</p>
             <p *ngIf="item.patho_niv2 != ';'">{{ item.patho_niv2 }}</p>
-            <p>Sexe : {{ item.libelle_sexe }}</p>
-            <p>Age : {{item.cla_age_5}}</p>
+            <p *ngIf="item.patho_niv3 != ';'">{{ item.patho_niv3 }}</p>
           </li>
         </ul>
       </div>
