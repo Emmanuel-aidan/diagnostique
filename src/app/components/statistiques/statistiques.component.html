@@ -1,0 +1,25 @@
+<mat-card class="title">
+
+  <div class="image">
+    <a href="/"> <!-- Remplacez "/accueil" par l'URL de votre page d'accueil -->
+      <img src="../../../assets/IA_small.png" alt="dIAg" />
+    </a>
+  </div>
+
+  <div class="contenu">
+    <h1>Statistiques</h1>
+
+    <mat-form-field appearance="fill">
+      <mat-select placeholder="Département" class="mat-warn">
+        <mat-option *ngFor="let dep of departements" [value]="dep">{{dep}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</mat-card>
+
+<div class="chart-container">
+  <canvas  id="barCart" >{{ barchart }}</canvas>
+</div>
+<div class="chart-container">
+  <canvas  id="pie" >{{ pie }}</canvas>
+</div>
